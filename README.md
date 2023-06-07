@@ -20,7 +20,7 @@ Maven can be installed with the help of the steps mentioned on the site https://
 
 Click on New project in Intellij and select language as java and maven as built system. You will find Main class in the project and a pom.xml file. This file will contain all the dependencies that you will require for this AWS Project. You can modify the pom.xml file to the one that you see below 
 
-`<?xml version="1.0" encoding="UTF-8"?>
+```<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -146,7 +146,8 @@ Click on New project in Intellij and select language as java and maven as built 
             </plugin>
         </plugins>
     </build>
-</project>` 
+</project>
+```
 
 
 
