@@ -182,7 +182,7 @@ Our project will contain below various different java classes.
          
 
 
-**Joke.java**
+***Joke.java***
 
 ```
 package org.example;
@@ -539,7 +539,7 @@ If you see in our JSON format there are input tags inside another input tags. Fo
 ```
 
 
-**JokesFlagConverter.java**
+***JokesFlagConverter.java***
 
 ```
 package org.example;
@@ -599,7 +599,7 @@ public class JokeFlagsConverter implements AttributeConverter<Joke.Flags> {
 ```
 
 
-**CheckTable.java** 
+***CheckTable.java*** 
 
 ```
 package org.example;
@@ -645,7 +645,7 @@ public class CheckTable implements RequestHandler<ScheduledEvent, String> {
 
 ```
 
-**SendJokesMail.java**
+***SendJokesMail.java***
 
 ```
 package org.example;
@@ -766,5 +766,34 @@ public class SendJokesMail {
 }
 
 ```
+
+**Step 5: [Publishing the project on AWS Lambda function]**
+
+After building the project we build the project by using the command "mvn package". Then we go to AWS console, we create a lambda function, there are two important things that we need to do 
+
+a) We need to upload the executable jar file of the project which will find our project folder as seen below :
+
+![image](https://github.com/chinmaygandi/AWS-Serverless-Stack-Project/assets/131703516/da36ed19-a764-4b38-9d79-324b74b6dc50)
+
+b) We need to mention from which java class file will our AWS lambda function start in handler field as seen below. So in our case it will be joke_handler class. We also need to specify from which method will called first. This is done by the naming standard - "package_name.classname :: method_name"
+
+
+![image](https://github.com/chinmaygandi/AWS-Serverless-Stack-Project/assets/131703516/45c6e677-214a-40f2-93d1-69c02438743e)
+
+
+You can directly test the lambda function.
+
+**Step 6: [Making an API for triggering our lambda function]**
+
+We create a simple API by going to API gateway service. You will have to create a resource, inside resource a method that will do the job of calling our lambda function that we created in step 5. In our case, we will call our lambda function via GET method. Once you click on GET method, you will select the lambda function and it will look like this. 
+
+![image](https://github.com/chinmaygandi/AWS-Serverless-Stack-Project/assets/131703516/41badfd3-dd06-4997-a9bb-662b25ecebec)
+
+
+After creating the API GET method, we deploy the API by going into stages section and you will find the invoke URL on your screen as seen below. So everytime click on invoke URL a joke will be sent to our email id. 
+
+![image](https://github.com/chinmaygandi/AWS-Serverless-Stack-Project/assets/131703516/50f41afd-3e9c-4bf2-8f44-e78c6589b8a8)
+
+
 
 
